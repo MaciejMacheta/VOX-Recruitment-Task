@@ -1,0 +1,245 @@
+$fontSize: 16px;
+$backgroundColor: #3a3a3a;
+$darkTextColor: #fff;
+$darkBorderColor: #444;
+$darkBackgroundColor: #333;
+
+*,
+*::before,
+*::after {
+  outline: none !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.5s;
+
+  &:hover {
+    border-color: #cfcfcf;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 10px auto -webkit-focus-ring-color;
+  }
+}
+
+input {
+  padding: 10px;
+  border: 1px solid $darkBorderColor;
+  border-radius: 8px;
+  background-color: $darkBackgroundColor;
+  color: $darkTextColor;
+  font-size: $fontSize;
+
+  &:focus {
+    outline: none;
+    border-color: #7f8c8d;
+  }
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: $backgroundColor;
+}
+
+.container {
+  align-items: flex-start;
+}
+
+.colored-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.colored-div {
+  top: 15vh;
+  width: 24.7%;
+  height: 10vh;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.start-new-column {
+    clear: left;
+  }
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  &.dragging {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.7;
+    transform: scale(1.05);
+    z-index: 2;
+  }
+}
+
+.start-new-column {
+  clear: left;
+}
+
+button,
+.cancel-button,
+.submit-button {
+  padding: 10px 20px;
+  font-size: $fontSize;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.color-picker {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+  input {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: $fontSize;
+  }
+}
+
+.rgbInputs {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  input {
+    margin-bottom: 10px;
+    text-align: flex-start;
+    width: 50px;
+    padding: 5px 0px 5px 5px;
+  }
+}
+
+select {
+  padding: 10px;
+  border: 1px solid $darkBorderColor;
+  border-radius: 10px;
+  background-color: $darkBackgroundColor;
+  color: $darkTextColor;
+  font-size: $fontSize;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: #7f8c8d;
+  }
+}
+
+.formatChoiceOverlay {
+  flex-direction: row;
+
+  .formatChoice {
+    display: flex;
+    align-items: flex-start;
+
+    option {
+      padding: 5px;
+      background-color: $darkBackgroundColor;
+      color: $darkTextColor;
+      white-space: nowrap;
+    }
+  }
+}
+
+.hexInput {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  input {
+    text-align: left;
+    width: 60%;
+  }
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+.tileAddButton {
+  position: absolute;
+  width: auto;
+  top: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modal {
+  position: fixed;
+  flex-direction: row;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3 !important;
+}
+
+.modal-content {
+  flex-direction: row;
+  background: $backgroundColor;
+  padding: 5vh 5vh 5vh 5vh;
+  width: auto;
+  border-radius: 10px;
+}
+
+.color-picker-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-side {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.colored-div-picker {
+  width: 200px;
+  height: 200px;
+}
